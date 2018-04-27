@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Lista de empleados</title>
+        <link href="../css/div_flotante.css" rel="stylesheet" type="text/css"/>
+        <link rel="icon" type="image/png" href="../icon/favicon (1).ico" />
+    </h:head>
+    <h:body id="cuerpo">
+        <f:view>
+            <h:form>
+                <p:fieldset legend="lista de empleados">
+                    <p:dataTable value="#{employeedManagedBean.listarEmpleados()}" var="item"  paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="ID Empleados"/>
+                            </f:facet>
+                            <h:outputText value="#{item.employeeID}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Apellido"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lastName}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre"/>
+                            </f:facet>
+                            <h:outputText value="#{item.firstName}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Fecha nacimiento"/>
+                            </f:facet>
+                            <h:outputText value="#{item.birthDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Fecha contratación"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hireDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="dirección"/>
+                            </f:facet>
+                            <h:outputText value="#{item.address}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Ciudad"/>
+                            </f:facet>
+                            <h:outputText value="#{item.city}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Departamento"/>
+                            </f:facet>
+                            <h:outputText value="#{item.region}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="País"/>
+                            </f:facet>
+                            <h:outputText value="#{item.country}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Teléfono fijo"/>
+                            </f:facet>
+                            <h:outputText value="#{item.homePhone}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Extensión"/>
+                            </f:facet>
+                            <h:outputText value="#{item.extension}"/>
+                        </p:column>
+                    </p:dataTable>
+                    <br/>
+                    <div id="contenedor">
+                        <div id="div1">
+                            <p:button icon="ui-icon-arrowthick-1-w" value="Volver" outcome="/registros/registro_empelados.xhtml"></p:button>
+                        </div> 
+                        <div id="div2">
+                            <p:button icon="ui-icon-arrowthick-1-w" value="listado clientes" outcome="/listados/listado_clientes.xhtml"></p:button>
+                        </div>
+                    </div>
+                </p:fieldset>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

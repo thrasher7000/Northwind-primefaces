@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link href="../css/div_flotante.css" rel="stylesheet" type="text/css"/>
+        <title>Registrar cliente</title>
+        <link rel="icon" type="image/png" href="../icon/favicon.ico" />
+    </h:head>
+    <h:body id="cuerpo">
+        <f:view>
+            <br/>
+            <br/>
+            <p:fieldset legend="Registar cliente" style="font-family: Helvetica;">
+                <div align="center">
+                    <h:form>
+                        <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>
+                        <p:panelGrid columns="3" id="pgDatos">
+
+                            <p:outputLabel value="Nombre de la compañia:" for="companyName" />
+                            <p:inputText id="companyName" value="#{customerManagedBean.customers.companyName}" title="CompanyName" required="true" requiredMessage="El campo nombre de la compañia es necesario"/>
+                            <p:message for="companyName"/>
+
+                            <p:outputLabel value="Nombre del contacto:" for="contactName" />
+                            <p:inputText id="contactName" value="#{customerManagedBean.customers.contactName}" title="ContactName" required="true" requiredMessage="El campo nombre de contacto es necesario" />
+                            <p:message for="contactName "/>
+
+                            <p:outputLabel value="Título de contacto:" for="contactTitle" />
+                            <p:inputText id="contactTitle" value="#{customerManagedBean.customers.contactTitle}" title="ContactTitle" required="true" requiredMessage="El campo titulo del contacto es necesario" />
+                            <p:message for="contactTitle "/>
+
+                            <p:outputLabel value="Dirección:" for="address" />
+                            <p:inputText id="address" value="#{customerManagedBean.customers.address}" title="Address" required="true" requiredMessage="El campo dirección es necesario"/>
+                            <p:message for="address"/>
+
+                            <p:outputLabel value="Ciudad:" for="city" />
+                            <p:inputText id="city" value="#{customerManagedBean.customers.city}" title="City" required="true" requiredMessage="El campo ciudad es necesario"/>
+                            <p:message for="city"/>
+
+                            <p:outputLabel value="Departamento:" for="region" />
+                            <p:inputText id="region" value="#{customerManagedBean.customers.region}" title="Region" required="true" requiredMessage="El campo departamento es necesario"/>
+                            <p:message for="region"/>
+
+                            <p:outputLabel value="País:" for="country" />
+                            <p:inputText id="country" value="#{customerManagedBean.customers.country}" title="Country" required="true" requiredMessage="El campo país es necesario"/>
+                            <p:message for="country"/>
+
+                            <p:outputLabel value="Teléfono:" for="phone" />
+                            <p:inputText type="number" id="phone" value="#{customerManagedBean.customers.phone}" title="Phone" required="true" requiredMessage="El campo teléfono es necesario"/>
+                            <p:message for="phone"/>
+
+                        </p:panelGrid><br/>
+                        <div align="center">
+                            <p:commandButton id="registar" value="Registar" actionListener="#{customerManagedBean.registrarUsuario()}" icon="ui-icon-plus" update="pgDatos,mensaje,registar"></p:commandButton>
+                        </div>
+                    </h:form>
+                </div>  
+                <div id="contenedor">
+                    <div id="div1">
+                        <p:button icon="ui-icon-clipboard" value="Lista de cliente" outcome="/listados/listado_clientes.xhtml"></p:button>
+                    </div>
+                    <div id="div2">
+                        <p:button icon="ui-icon-plusthick" value="Registrar empleado" outcome="registro_empelados.xhtml"></p:button>
+                    </div>
+                </div>
+            </p:fieldset>
+        </f:view>
+
+    </h:body>
+</html>
+
