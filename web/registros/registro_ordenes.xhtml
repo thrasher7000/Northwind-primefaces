@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link href="../css/div_flotante.css" rel="stylesheet" type="text/css"/>
+        <title>Registrar ordenes</title>
+        <link rel="icon" type="image/png" href="../icon/favicon.ico" />
+    </h:head>
+    <h:body id="cuerpo">
+        <f:view>
+            <br/>
+            <br/>
+            <p:fieldset legend="Registar ordenes" style="font-family: Helvetica;">
+                <div align="center">
+                    <h:form>
+                        <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>
+                        <p:panelGrid columns="3" id="pgDatos">
+                            
+                            <p:outputLabel value="CustomerID:" for="customerID" />
+                            <p:inputText id="customerID" value="#{orderManagedBean.order.customerID}" title="CustomerID" />
+                            <p:message for="customerID"/>
+                            
+                            <p:outputLabel value="EmployeeID:" for="employeeID" />
+                            <p:inputText id="employeeID" value="#{orderManagedBean.order.employeeID}" title="EmployeeID" />
+                            <p:message for="employeeID"/>
+                            
+                            <p:outputLabel value="OrderDate:" for="orderDate" />
+                            <p:inputText id="orderDate" value="#{orderManagedBean.order.orderDate}" title="OrderDate" >
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </p:inputText>
+                            <p:message for="orderDate"/>
+                            
+                            <p:outputLabel value="RequiredDate:" for="requiredDate" />
+                            <p:inputText id="requiredDate" value="#{orderManagedBean.order.requiredDate}" title="RequiredDate" >
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </p:inputText>
+                            <p:message for="requiredDate"/>
+                            
+                            <p:outputLabel value="ShippedDate:" for="shippedDate" />
+                            <p:inputText id="shippedDate" value="#{orderManagedBean.order.shippedDate}" title="ShippedDate" >
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </p:inputText>
+                            <p:message for="shippedDate"/>
+                            
+                            <p:outputLabel value="ShipVia:" for="shipVia" />
+                            <p:inputText id="shipVia" value="#{orderManagedBean.order.shipVia}" title="ShipVia" />
+                            <p:message for="shipVia"/>
+                            
+                            <p:outputLabel value="Freight:" for="freight" />
+                            <p:inputText id="freight" value="#{orderManagedBean.order.freight}" title="Freight" />
+                            <p:message for="freight"/>
+                            
+                            <p:outputLabel value="ShipName:" for="shipName" />
+                            <p:inputText id="shipName" value="#{orderManagedBean.order.shipName}" title="ShipName" />
+                            <p:message for="shipName"/>
+                            
+                            <p:outputLabel value="ShipAddress:" for="shipAddress" />
+                            <p:inputText id="shipAddress" value="#{orderManagedBean.order.shipAddress}" title="ShipAddress" />
+                            <p:message for="shipAddress"/>
+                            
+                            <p:outputLabel value="ShipCity:" for="shipCity" />
+                            <p:inputText id="shipCity" value="#{orderManagedBean.order.shipCity}" title="ShipCity" />
+                            <p:message for="shipCity"/>
+                            
+                            <p:outputLabel value="ShipRegion:" for="shipRegion" />
+                            <p:inputText id="shipRegion" value="#{orderManagedBean.order.shipRegion}" title="ShipRegion" />
+                            <p:message for="shipRegion"/>
+                            
+                            <p:outputLabel value="ShipPostalCode:" for="shipPostalCode" />
+                            <p:inputText id="shipPostalCode" value="#{orderManagedBean.order.shipPostalCode}" title="ShipPostalCode" />
+                            <p:message for="shipPostalCode"/>
+                            
+                            <p:outputLabel value="ShipCountry:" for="shipCountry" />
+                            <p:inputText id="shipCountry" value="#{orderManagedBean.order.shipCountry}" title="ShipCountry" />
+                            <p:message for="shipCountry"/>
+                            
+                        </p:panelGrid><br/>
+                        <div align="center">
+                            <p:commandButton id="registar" value="Registar" actionListener="#{orderManagedBean.registrarOrden()}" icon="ui-icon-plus" update="pgDatos,mensaje,registar"></p:commandButton>
+                        </div>
+                    </h:form>
+                </div>  
+                <div id="contenedor">
+                    <div id="div1">
+                        <p:button icon="ui-icon-clipboard" value="Lista de cliente" outcome="/listados/listado_clientes.xhtml"></p:button>
+                    </div>
+                    <div id="div2">
+                        <p:button icon="ui-icon-plusthick" value="Registrar empleado" outcome="registro_empelados.xhtml"></p:button>
+                    </div>
+                </div>
+            </p:fieldset>
+        </f:view>
+    </h:body>
+</html>
+
+
+

@@ -10,6 +10,7 @@ import entidades.Orders;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -27,6 +28,7 @@ public class OrderManagedBean implements Serializable{
     private OrdersFacadeLocal orderFL;
     private Orders order;
     
+    @PostConstruct
     public void init (){
         order =  new Orders();
     }
@@ -50,8 +52,8 @@ public class OrderManagedBean implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.orderFL);
-        hash = 59 * hash + Objects.hashCode(this.order);
+        hash = 23 * hash + Objects.hashCode(this.orderFL);
+        hash = 23 * hash + Objects.hashCode(this.order);
         return hash;
     }
 
@@ -80,6 +82,8 @@ public class OrderManagedBean implements Serializable{
     public String toString() {
         return "OrderManagedBean{" + "orderFL=" + orderFL + ", order=" + order + '}';
     }
+    
+    
     
     public void registrarOrden(){
         try {
