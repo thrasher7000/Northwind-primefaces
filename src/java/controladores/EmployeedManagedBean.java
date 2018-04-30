@@ -88,7 +88,7 @@ public class EmployeedManagedBean implements Serializable{
         }
     }
     
-    public List<Employees> listarEmpleados (){
+    public List<Employees> listarEmpleados(){
         return employeesFL.findAll();
     }
 }

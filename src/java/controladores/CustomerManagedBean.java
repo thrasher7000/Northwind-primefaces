@@ -16,7 +16,7 @@ import javax.inject.Named;
  *
  * @author mrivera
  */
-@Named
+@Named(value = "customerManagedBean")
 @ViewScoped
 public class CustomerManagedBean implements Serializable {
     @EJB

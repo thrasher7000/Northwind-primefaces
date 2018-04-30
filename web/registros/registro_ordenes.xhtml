@@ -20,7 +20,9 @@
                         <p:panelGrid columns="3" id="pgDatos">
                             
                             <p:outputLabel value="CustomerID:" for="customerID" />
-                            <p:inputText id="customerID" value="#{orderManagedBean.order.customerID}" title="CustomerID" />
+                            <p:selectOneMenu id="customerID" value="#{customerManagedBean.customers.customerID}">
+                                <f:selectItems value="#{customerManagedBean.customersFL.findAll()}" var="ci" itemLabel="#{ci.customerID}"/>
+                            </p:selectOneMenu>
                             <p:message for="customerID"/>
                             
                             <p:outputLabel value="EmployeeID:" for="employeeID" />
@@ -28,20 +30,20 @@
                             <p:message for="employeeID"/>
                             
                             <p:outputLabel value="OrderDate:" for="orderDate" />
-                            <p:inputText id="orderDate" value="#{orderManagedBean.order.orderDate}" title="OrderDate" >
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            <p:inputText  type="date" id="orderDate" value="#{orderManagedBean.order.orderDate}" title="OrderDate" >
+                                 <f:convertDateTime pattern="yyyy-MM-dd" />
                             </p:inputText>
                             <p:message for="orderDate"/>
                             
                             <p:outputLabel value="RequiredDate:" for="requiredDate" />
-                            <p:inputText id="requiredDate" value="#{orderManagedBean.order.requiredDate}" title="RequiredDate" >
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            <p:inputText type="date" id="requiredDate" value="#{orderManagedBean.order.requiredDate}" title="RequiredDate" >
+                                 <f:convertDateTime pattern="yyyy-MM-dd" />
                             </p:inputText>
                             <p:message for="requiredDate"/>
                             
                             <p:outputLabel value="ShippedDate:" for="shippedDate" />
-                            <p:inputText id="shippedDate" value="#{orderManagedBean.order.shippedDate}" title="ShippedDate" >
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            <p:inputText type="date" id="shippedDate" value="#{orderManagedBean.order.shippedDate}" title="ShippedDate" >
+                                 <f:convertDateTime pattern="yyyy-MM-dd" />
                             </p:inputText>
                             <p:message for="shippedDate"/>
                             
@@ -95,6 +97,5 @@
         </f:view>
     </h:body>
 </html>
-
 
 
