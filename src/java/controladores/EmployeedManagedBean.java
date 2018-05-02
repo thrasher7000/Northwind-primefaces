@@ -18,7 +18,7 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "employeedManagedBean")
 @ViewScoped
-public class EmployeedManagedBean implements Serializable{
+public class EmployeedManagedBean implements Serializable, IManagedBean<Employees>{
     @EJB 
     private EmployeesFacadeLocal employeesFL;
     private Employees employees;
@@ -90,5 +90,10 @@ public class EmployeedManagedBean implements Serializable{
     
     public List<Employees> listarEmpleados(){
         return employeesFL.findAll();
+    }
+
+    @Override
+    public Employees getObjetoByKey(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
