@@ -28,6 +28,11 @@ public class EmployeedManagedBean implements Serializable, IManagedBean<Employee
     public void init(){
         employees =  new Employees();
     }
+    
+    @Override
+    public Employees getObjetoByKey(Integer id){
+        return employeesFL.find(id);
+    }
 
     public EmployeesFacadeLocal getEmployeesFL() {
         return employeesFL;
@@ -92,8 +97,4 @@ public class EmployeedManagedBean implements Serializable, IManagedBean<Employee
         return employeesFL.findAll();
     }
 
-    @Override
-    public Employees getObjetoByKey(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

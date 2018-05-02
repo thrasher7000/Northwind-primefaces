@@ -6,6 +6,8 @@
 package controladores;
 
 import Facades.OrdersFacadeLocal;
+import entidades.Customers;
+import entidades.Employees;
 import entidades.Orders;
 import java.io.Serializable;
 import java.util.List;
@@ -23,14 +25,23 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "orderManagedBean")
 @ViewScoped
-public class OrderManagedBean implements Serializable{
+public class OrderManagedBean implements Serializable, IManagedBean<Orders>{
     @EJB
     private OrdersFacadeLocal orderFL;
     private Orders order;
+    private Employees employees;
+    private Customers customers;
     
     @PostConstruct
     public void init (){
         order =  new Orders();
+        employees = new Employees();
+        customers = new Customers();
+    }
+    
+     @Override
+    public Orders getObjetoByKey(Integer id){
+        return orderFL.find(id);
     }
 
     public OrdersFacadeLocal getOrderFL() {
@@ -82,8 +93,6 @@ public class OrderManagedBean implements Serializable{
     public String toString() {
         return "OrderManagedBean{" + "orderFL=" + orderFL + ", order=" + order + '}';
     }
-    
-    
     
     public void registrarOrden(){
         try {

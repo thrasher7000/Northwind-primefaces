@@ -18,7 +18,7 @@ import javax.inject.Named;
  */
 @Named(value = "customerManagedBean")
 @ViewScoped
-public class CustomerManagedBean implements Serializable {
+public class CustomerManagedBean implements Serializable, IManagedBean<Customers> {
     @EJB
     private CustomersFacadeLocal customersFL;
     private Customers customers;
@@ -91,5 +91,10 @@ public class CustomerManagedBean implements Serializable {
     
     public List<Customers> listar(){
         return customersFL.findAll();
+    }
+
+    @Override
+    public Customers getObjetoByKey(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
