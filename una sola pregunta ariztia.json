@@ -1,0 +1,40 @@
+{
+  "formId": 1,
+  "formType": "Tipo 1",
+  "formName": "FORMULARIO - ARIZTÍA",
+  "formQuestions": 17,
+  "formSections": 1,
+  "uniqueId": null,
+  "formSignature": {
+    "createAt": null,
+    "userLogged": null,
+    "coordinates": null,
+    "keyProject": null
+  },
+  "sections": [
+    {
+      "sectionId": 1,
+      "sectionName": "Datos del cliente",
+      "sectionQuestions": 17,
+      "randomSections": false,
+      "randomQuestions": false,
+      "questionsRequired": 0,
+      "questions": [
+        {
+          "questionId": 1,
+          "sentence": "Cliente",
+          "type": 40,
+          "answer": null,
+          "sectionId": 1,
+          "required": true,
+          "options": [
+            {
+              "id": "5a5799bbe9f60c2cc8be7ba0",
+              "description": "#**#**#**#"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
